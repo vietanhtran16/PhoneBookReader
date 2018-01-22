@@ -1,5 +1,9 @@
 defmodule PhoneBookReader do
-  def read do
-    "Hello world"
+  def convertToContactMaps (path) do
+    File.stream!(path) |> CSV.decode!(headers: true) |> Enum.to_list
+  end
+
+  def getPhoneNumber (contactTuples) do
+    Enum.map(contactTuples, fn (contact) -> contact["Phone Number"] end)
   end
 end
