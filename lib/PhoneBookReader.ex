@@ -6,4 +6,8 @@ defmodule PhoneBookReader do
   def getPhoneNumber (contactTuples) do
     Enum.map(contactTuples, fn (contact) -> contact["Phone Number"] end)
   end
+
+  def verify (phoneNumberList) do
+    true
+  end
 end

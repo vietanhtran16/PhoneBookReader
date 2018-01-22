@@ -22,4 +22,9 @@ defmodule PhoneBookReaderTest do
                      %{"Name" => "Antonia Maslanka", "Phone Number" => "00594-83-34 93"}]
     assert PhoneBookReader.getPhoneNumber(contactTuples) == expected
   end
+
+  test "return true for a consistent list of phone numbers" do
+    phoneNumberList = [ "039 298-72-30", "032-2659094", "03758295-10 32", "00594-83-34 93"]
+    assert PhoneBookReader.verify(phoneNumberList) == true
+  end
 end
