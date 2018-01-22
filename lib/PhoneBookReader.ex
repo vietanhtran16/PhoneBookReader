@@ -4,10 +4,17 @@ defmodule PhoneBookReader do
   end
 
   def getPhoneNumber (contactTuples) do
-    Enum.map(contactTuples, fn (contact) -> contact["Phone Number"] end)
+    Enum.map(contactTuples, fn (contact) -> String.replace(contact["Phone Number"], "-", "") |> String.replace(" ", "") end)
   end
 
-  def verify (phoneNumberList) do
+  def verify ([head | tail]) do
+    case Enum.all?(tail, fn(current) -> !String.contains?(current, head) end) do
+      true -> verify(tail)
+      false -> false
+    end
+  end
+
+  def verify([]) do
     true
   end
 end
