@@ -32,4 +32,9 @@ defmodule PhoneBookReaderTest do
     phoneNumberList = ["911", "91125426", "97625992" ]
     assert PhoneBookReader.verify(phoneNumberList) == false
   end
+  
+  test "return false for an inconsistent list of phone numbers with mixed up order" do
+    phoneNumberList = ["91125426", "911", "97625992" ]
+    assert PhoneBookReader.verify(phoneNumberList) == false
+  end
 end
