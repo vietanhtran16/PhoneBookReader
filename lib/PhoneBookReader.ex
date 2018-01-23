@@ -1,6 +1,8 @@
 defmodule PhoneBookReader do
   def convertToContactMaps (path) do
-    File.stream!(path) |> CSV.decode!(headers: true) |> Enum.to_list
+    File.stream!(path) 
+      |> CSV.decode!(headers: true) 
+      |> Enum.to_list
   end
 
   def getPhoneNumber (contactTuples) do
@@ -16,5 +18,10 @@ defmodule PhoneBookReader do
 
   def verify([]) do
     true
+  end
+
+  def isValidNumber(currentPhoneNumber, phoneNumberList) do 
+    listWithoutCurrentNumber = List.delete(phoneNumberList, currentPhoneNumber)
+    Enum.all?(listWithoutCurrentNumber, fn (current) -> !String.contains?(current, currentPhoneNumber) end)
   end
 end
