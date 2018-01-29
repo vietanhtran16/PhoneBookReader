@@ -6,6 +6,6 @@ defmodule PhoneBookExtractorTest do
                      %{"Name" => "Miguel Eveland", "Phone Number" => "032-2659094"},
                      %{"Name" => "Audrie Smid", "Phone Number" => "03758295-10 32"},
                      %{"Name" => "Antonia Maslanka", "Phone Number" => "00594-83-34 93"}]
-    assert PhoneBookReader.getPhoneNumber(contactTuples) == expected
+    assert PhoneBookExtractor.getPhoneNumber(contactTuples) == expected
   end
 end
