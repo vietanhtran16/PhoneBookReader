@@ -7,7 +7,7 @@ defmodule NumberValidator do
         listWithoutCurrentNumber = List.delete(phoneNumberList, currentPhoneNumber)
     
         Enum.all?(listWithoutCurrentNumber, fn current ->
-          !String.contains?(current, currentPhoneNumber)
+          !String.starts_with?(current, currentPhoneNumber)
         end)
     end
 end
