@@ -1,9 +1,9 @@
 defmodule NumberValidator do
     def validate(phoneNumberList) do
-        Enum.all?(phoneNumberList, fn current -> isPrefix(current, phoneNumberList) end)
+        Enum.all?(phoneNumberList, fn current -> isNotPrefix(current, phoneNumberList) end)
     end
     
-    def isPrefix(currentPhoneNumber, phoneNumberList) do
+    def isNotPrefix(currentPhoneNumber, phoneNumberList) do
         listWithoutCurrentNumber = List.delete(phoneNumberList, currentPhoneNumber)
     
         Enum.all?(listWithoutCurrentNumber, fn current ->

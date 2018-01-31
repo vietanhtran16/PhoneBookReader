@@ -5,8 +5,8 @@ defmodule PhoneBookExtractor do
           |> Enum.to_list()
       end
     
-      def getPhoneNumber(contactTuples) do
-        Enum.map(contactTuples, fn contact ->
+      def getPhoneNumber(contactMaps) do
+        Enum.map(contactMaps, fn contact ->
           String.replace(contact["Phone Number"], "-", "")
             |> String.replace(" ", "")
         end)
