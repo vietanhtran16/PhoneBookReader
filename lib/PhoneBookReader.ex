@@ -3,7 +3,7 @@ defmodule PhoneBookReader do
   import NumberValidator
   def verify(path) do
     PhoneBookExtractor.convertToContactMaps(path)
-      |> PhoneBookExtractor.getPhoneNumber()
-      |> NumberValidator.validate()
+      |> PhoneBookExtractor.getPhoneNumber
+      |> NumberValidator.validate
   end
 end
